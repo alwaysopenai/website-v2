@@ -1,6 +1,37 @@
 import { useDemoRequest } from "@/context/DemoRequest";
 import { DM_CHANNELS, Logo, NeonSign } from "./ui";
-import { ArrowUpRight, Bolt, Telegram } from "./Icons";
+import {
+  ArrowUpRight,
+  Bolt,
+  InstagramBrand,
+  Mail,
+  PinterestBrand,
+  Telegram,
+  ThreadsBrand,
+} from "./Icons";
+
+const SOCIAL = [
+  {
+    label: "Email AlwaysOpen AI",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello.alwaysopenai@gmail.com",
+    Icon: Mail,
+  },
+  {
+    label: "AlwaysOpen AI on Instagram",
+    href: "https://www.instagram.com/alwaysopen_ai/",
+    Icon: InstagramBrand,
+  },
+  {
+    label: "AlwaysOpen AI on Threads",
+    href: "https://www.threads.net/@alwaysopen_ai",
+    Icon: ThreadsBrand,
+  },
+  {
+    label: "AlwaysOpen AI on Pinterest",
+    href: "https://www.pinterest.com/alwaysopenai/",
+    Icon: PinterestBrand,
+  },
+];
 
 const EXPLORE = [
   { label: "Services", href: "#services" },
@@ -25,14 +56,23 @@ export function Footer() {
               <span className="serif-accent text-lime">always.</span>
             </p>
             <p className="footer-contact">
-              <a href="mailto:hello.alwaysopenai@gmail.com">hello.alwaysopenai@gmail.com</a>
-              {" · "}
-              <a href="https://www.instagram.com/alwaysopen_ai/" target="_blank" rel="noreferrer">Instagram @alwaysopen_ai</a>
-              {" · "}
-              <a href="https://www.threads.net/@alwaysopen_ai" target="_blank" rel="noreferrer">Threads @alwaysopen_ai</a>
-              {" · "}
-              <a href="https://www.pinterest.com/alwaysopenai/" target="_blank" rel="noreferrer">Pinterest @alwaysopenai</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello.alwaysopenai@gmail.com" target="_blank" rel="noreferrer">hello.alwaysopenai@gmail.com</a>
             </p>
+            <div className="footer-social" aria-label="AlwaysOpen AI on social media">
+              {SOCIAL.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-social-btn"
+                  aria-label={label}
+                  title={label}
+                >
+                  <Icon size={40} />
+                </a>
+              ))}
+            </div>
             <div className="footer-dm">
               {DM_CHANNELS.map(({ id, label, Icon }) => (
                 <button

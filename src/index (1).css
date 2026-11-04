@@ -2952,6 +2952,44 @@ img {
   gap: 0.5rem;
 }
 
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(243, 241, 231, 0.82);
+  transition: transform 0.3s var(--ease-out-expo), opacity 0.25s;
+}
+
+.footer-social-btn svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+}
+
+.footer-social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+.footer-social-btn:first-child svg {
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 0.4rem;
+  box-sizing: border-box;
+  color: #000000;
+}
+
 .footer-nav {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

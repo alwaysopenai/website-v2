@@ -111,6 +111,126 @@ export function Send(props: IconProps) {
   );
 }
 
+export function Mail(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3.5 7 8.5 6 8.5-6" />
+    </svg>
+  );
+}
+
+export function Threads(props: IconProps) {
+  const { size = 20, ...rest } = props;
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      {...rest}
+    >
+      <text
+        x="12"
+        y="17.5"
+        textAnchor="middle"
+        fontSize="16"
+        fontWeight="700"
+        fontFamily="Arial, sans-serif"
+        fill="currentColor"
+      >
+        @
+      </text>
+    </svg>
+  );
+}
+
+export function Pinterest(props: IconProps) {
+  const { size = 20, ...rest } = props;
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      {...rest}
+    >
+      <text
+        x="12"
+        y="17.5"
+        textAnchor="middle"
+        fontSize="15"
+        fontWeight="800"
+        fontFamily="Arial, sans-serif"
+        fill="currentColor"
+      >
+        P
+      </text>
+    </svg>
+  );
+}
+
+export function InstagramBrand(props: IconProps) {
+  const { size = 40, ...rest } = props;
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...rest}>
+      <defs>
+        <linearGradient id="instaGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#feda75" />
+          <stop offset="25%" stopColor="#fa7e1e" />
+          <stop offset="50%" stopColor="#d62976" />
+          <stop offset="75%" stopColor="#962fbf" />
+          <stop offset="100%" stopColor="#4f5bd5" />
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#instaGrad)" />
+      <rect x="6" y="6" width="12" height="12" rx="3.5" fill="none" stroke="#ffffff" strokeWidth="1.6" />
+      <circle cx="12" cy="12" r="2.8" fill="none" stroke="#ffffff" strokeWidth="1.6" />
+      <circle cx="17.2" cy="6.8" r="1" fill="#ffffff" />
+    </svg>
+  );
+}
+
+export function ThreadsBrand(props: IconProps) {
+  const { size = 40, ...rest } = props;
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...rest}>
+      <circle cx="12" cy="12" r="11" fill="#000000" />
+      <text
+        x="12"
+        y="17.5"
+        textAnchor="middle"
+        fontSize="15"
+        fontWeight="700"
+        fontFamily="Arial, sans-serif"
+        fill="#ffffff"
+      >
+        @
+      </text>
+    </svg>
+  );
+}
+
+export function PinterestBrand(props: IconProps) {
+  const { size = 40, ...rest } = props;
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...rest}>
+      <circle cx="12" cy="12" r="11" fill="#e60023" />
+      <text
+        x="12"
+        y="17.5"
+        textAnchor="middle"
+        fontSize="14"
+        fontWeight="800"
+        fontFamily="Georgia, serif"
+        fill="#ffffff"
+      >
+        P
+      </text>
+    </svg>
+  );
+}
+
 export function Instagram(props: IconProps) {
   return (
     <svg {...base(props)}>
