@@ -73,17 +73,27 @@ export function FinalCta() {
       return;
     }
     setSubmitError("");
-    try {
-      const response = await fetch("https://formspree.io/f/xrpppgdd", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...form, _subject: "AlwaysOpen AI demo request" }),
-      });
-      if (!response.ok) throw new Error("Formspree rejected the request");
-    } catch {
-      setSubmitError("Could not send just now. Please email hello.alwaysopenai@gmail.com or DM us on Instagram @alwaysopen_ai instead.");
-      return;
-    }
+    // No Formspree any more. Open Gmail compose so the client sends a
+    // REAL email from their own Gmail to hello.alwaysopenai@gmail.com.
+    // Our reply is then a normal reply in the same thread, not a first
+    // mail from a form service that lands in Spam. It also warms up
+    // the Gmail account with real incoming mail.
+    const bodyLines = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Business: ${form.business}`,
+      `Channel: ${form.channel}`,
+      "",
+      "Message:",
+      form.message,
+    ];
+    const gmailUrl =
+      "https://mail.google.com/mail/?view=cm&fs=1" +
+      "&to=" + encodeURIComponent("hello.alwaysopenai@gmail.com") +
+      "&su=" + encodeURIComponent(`AlwaysOpen AI demo request - ${form.name}`) +
+      "&body=" + encodeURIComponent(bodyLines.join("\n"));
+    window.open(gmailUrl, "_blank");
     const saved = { ...form, savedAt: new Date().toISOString() };
     setSubmittedData(saved);
     setSubmitted(true);
@@ -155,9 +165,11 @@ export function FinalCta() {
                     <span className="success-mark">
                       <Check size={24} />
                     </span>
-                    <h3>Your demo request is in.</h3>
+                    <h3>Your email is ready to send.</h3>
                     <p>
-                      Thanks, {firstName}. The next step is a free, working demo for{" "}
+                      Thanks, {firstName}. Gmail opened with your request filled in — press{" "}
+                      <strong className="font-medium text-cream/80">Send</strong> there, and it will
+                      reach us as a real email from you for{" "}
                       <strong className="font-medium text-cream/80">{submittedData.business}</strong>
                       , starting on {submittedData.channel}.
                     </p>
@@ -178,7 +190,7 @@ export function FinalCta() {
                     >
                       Send another request
                     </button>
-                    <small>We will reply to the email you gave, or DM you on the channel you picked.</small>
+                    <small>We will reply to the email you send, or DM you on the channel you picked.</small>
                   </div>
                 ) : (
                   <>
