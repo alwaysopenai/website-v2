@@ -11,7 +11,7 @@ export function Hero({ ready }: { ready: boolean }) {
         <div className="hero-grid">
           <div>
             <div className="hero-rise" style={{ "--rise-index": 0 } as React.CSSProperties}>
-              <Eyebrow>AI chatbots &amp; automation for small business</Eyebrow>
+              <Eyebrow>AI Lead &amp; Booking Agents for small businesses</Eyebrow>
             </div>
 
             <h1
@@ -32,9 +32,9 @@ export function Hero({ ready }: { ready: boolean }) {
               className="hero-sub hero-rise"
               style={{ "--rise-index": 2 } as React.CSSProperties}
             >
-              AI chatbots that answer your customers in seconds on Instagram, Messenger and
-              Telegram — even while you sleep. Built for small businesses, by the person you
-              actually talk to.
+              AI Lead & Booking Agents that reply to your customers in seconds on Instagram, Messenger and
+              Telegram, take bookings, and save you time — even while you sleep. Never miss a lead.
+              Never miss a booking. Built for small businesses, by the person you actually talk to.
             </p>
 
             <div

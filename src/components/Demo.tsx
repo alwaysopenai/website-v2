@@ -31,7 +31,7 @@ const QUICK_QUESTIONS: { chip: string; keys: string[]; answer: Answer }[] = [
     chip: "Services",
     keys: ["service", "services", "offer", "chatbot", "automation", "what do you do", "help"],
     answer: {
-      text: "Three things: 1) Instagram and Messenger chatbots, 2) Telegram bots, 3) Business automation. All built to keep your business open 24/7.",
+      text: "Three things: 1) Instagram and Messenger Lead & Booking Agents, 2) Telegram bots, 3) Business automation. All built to keep your business open 24/7.",
     },
   },
   {
@@ -68,7 +68,7 @@ const EXTRA_ANSWERS: { keys: string[]; answer: Answer }[] = [
   {
     keys: ["who are you", "what are you", "what is this", "demo", "bot", "alwaysopen", "about you"],
     answer: {
-      text: "I am the AlwaysOpen AI demo bot. AlwaysOpen AI builds AI chatbots for small businesses and connects apps so replies, lead logging and follow ups happen on their own.",
+      text: "I am the AlwaysOpen AI demo bot. AlwaysOpen AI builds AI Lead & Booking Agents for small businesses and connects apps so replies, lead logging and follow ups happen on their own.",
     },
   },
   {

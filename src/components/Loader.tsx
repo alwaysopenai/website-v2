@@ -52,7 +52,7 @@ export function Loader({ onFinish }: { onFinish: () => void }) {
           AlwaysOpen<span> AI</span>
         </span>
         <span className="eyebrow" style={{ letterSpacing: "0.14em" }}>
-          AI chatbots for small business
+          AI Lead & Booking Agents
         </span>
       </div>
 
