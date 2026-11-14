@@ -152,6 +152,8 @@ export function Footer() {
 
         <div className="footer-bottom">
           <span>© 2026 AlwaysOpen AI</span>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
           <span className="footer-built">
             <Bolt size={11} className="footer-built-svg" />
             Your business, open 24/7.
