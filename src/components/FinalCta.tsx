@@ -73,11 +73,14 @@ export function FinalCta() {
       return;
     }
     setSubmitError("");
-    // No Formspree any more. Open Gmail compose so the client sends a
-    // REAL email from their own Gmail to hello.alwaysopenai@gmail.com.
-    // Our reply is then a normal reply in the same thread, not a first
-    // mail from a form service that lands in Spam. It also warms up
-    // the Gmail account with real incoming mail.
+    // No Formspree any more, and no Gmail web link any more either:
+    // mail.google.com opens Chrome on a phone, often signed out, with
+    // nothing filled in and no draft saved. A mailto: link instead opens
+    // the client's OWN mail app (Gmail app on Android, Mail on iPhone)
+    // with To / subject / body already filled in, and the mail app saves
+    // it as a draft if they do not press Send. The client still sends a
+    // REAL email from their own address to hello.alwaysopenai@gmail.com,
+    // so our reply is a normal reply in the same thread.
     const bodyLines = [
       `Name: ${form.name}`,
       `Email: ${form.email}`,
@@ -88,12 +91,11 @@ export function FinalCta() {
       "Message:",
       form.message,
     ];
-    const gmailUrl =
-      "https://mail.google.com/mail/?view=cm&fs=1" +
-      "&to=" + encodeURIComponent("hello.alwaysopenai@gmail.com") +
-      "&su=" + encodeURIComponent(`AlwaysOpen AI demo request - ${form.name}`) +
+    const mailtoUrl =
+      "mailto:hello.alwaysopenai@gmail.com" +
+      "?subject=" + encodeURIComponent(`AlwaysOpen AI demo request - ${form.name}`) +
       "&body=" + encodeURIComponent(bodyLines.join("\n"));
-    window.open(gmailUrl, "_blank");
+    window.location.href = mailtoUrl;
     const saved = { ...form, savedAt: new Date().toISOString() };
     setSubmittedData(saved);
     setSubmitted(true);
@@ -167,7 +169,7 @@ export function FinalCta() {
                     </span>
                     <h3>Your email is ready to send.</h3>
                     <p>
-                      Thanks, {firstName}. Gmail opened with your request filled in — press{" "}
+                      Thanks, {firstName}. Your mail app opened with your request filled in — press{" "}
                       <strong className="font-medium text-cream/80">Send</strong> there, and it will
                       reach us as a real email from you for{" "}
                       <strong className="font-medium text-cream/80">{submittedData.business}</strong>

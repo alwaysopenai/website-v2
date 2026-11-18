@@ -13,7 +13,10 @@ import {
 const SOCIAL = [
   {
     label: "Email AlwaysOpen AI",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello.alwaysopenai@gmail.com",
+    // mailto: opens the phone's OWN mail app (Gmail app / Mail app).
+    // The old mail.google.com link opened Chrome on a phone, often
+    // signed out, with an empty compose and no draft saved.
+    href: "mailto:hello.alwaysopenai@gmail.com",
     Icon: Mail,
   },
   {
@@ -56,15 +59,18 @@ export function Footer() {
               <span className="serif-accent text-lime">always.</span>
             </p>
             <p className="footer-contact">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello.alwaysopenai@gmail.com" target="_blank" rel="noreferrer">hello.alwaysopenai@gmail.com</a>
+              <a href="mailto:hello.alwaysopenai@gmail.com">hello.alwaysopenai@gmail.com</a>
             </p>
             <div className="footer-social" aria-label="AlwaysOpen AI on social media">
               {SOCIAL.map(({ label, href, Icon }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noreferrer"
+                  // Only real web links open a new tab. A mailto: link
+                  // must NOT have target="_blank" or a phone opens a
+                  // blank Chrome tab instead of the mail app.
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
                   className="footer-social-btn"
                   aria-label={label}
                   title={label}
